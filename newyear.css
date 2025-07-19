@@ -1,0 +1,482 @@
+/* 新年页面样式 */
+
+/* 新年英雄区域 */
+.newyear-hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #000428 0%, #004e92 50%, #000428 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* 烟花动画 */
+.fireworks-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.firework {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    animation: firework linear infinite;
+}
+
+.firework:nth-child(1) {
+    left: 20%;
+    animation-duration: 3s;
+    animation-delay: 0s;
+    background: #ff6b6b;
+}
+
+.firework:nth-child(2) {
+    left: 40%;
+    animation-duration: 4s;
+    animation-delay: 1s;
+    background: #4ecdc4;
+}
+
+.firework:nth-child(3) {
+    left: 60%;
+    animation-duration: 3.5s;
+    animation-delay: 2s;
+    background: #45b7d1;
+}
+
+.firework:nth-child(4) {
+    left: 80%;
+    animation-duration: 4.5s;
+    animation-delay: 0.5s;
+    background: #96ceb4;
+}
+
+.firework:nth-child(5) {
+    left: 50%;
+    animation-duration: 3.8s;
+    animation-delay: 1.5s;
+    background: #feca57;
+}
+
+@keyframes firework {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) scale(1);
+        opacity: 0;
+        box-shadow: 
+            0 0 20px currentColor,
+            0 0 40px currentColor,
+            0 0 60px currentColor;
+    }
+}
+
+/* 新年内容 */
+.newyear-content {
+    text-align: center;
+    color: white;
+    z-index: 2;
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 50px;
+    border-radius: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.newyear-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: iconGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes iconGlow {
+    from {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    }
+    to {
+        text-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 255, 255, 0.6);
+    }
+}
+
+.newyear-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.newyear-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+#target-year {
+    color: #ffd700;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+}
+
+/* 倒计时显示 */
+.countdown-display {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 120px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.countdown-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.countdown-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: numberPulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes numberPulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+.countdown-label {
+    font-size: 1.2rem;
+    color: white;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.newyear-message {
+    margin-top: 30px;
+}
+
+.newyear-message p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    opacity: 0.9;
+}
+
+/* 新年信息区域 */
+.newyear-info {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.info-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    border-top: 4px solid #007bff;
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.info-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #007bff;
+    font-weight: 600;
+}
+
+.info-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* 新年活动区域 */
+.newyear-activities {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+}
+
+.newyear-activities h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.activity-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px 20px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.activity-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.activity-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.activity-item h4 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.activity-item p {
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* 新年决心区域 */
+.resolution-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+}
+
+.resolution-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.resolution-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.resolution-form h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+#resolution-text {
+    width: 100%;
+    min-height: 120px;
+    padding: 20px;
+    border: none;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#resolution-text:focus {
+    outline: none;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+#save-resolution {
+    display: block;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+    border: none;
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#save-resolution:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+#saved-resolutions {
+    margin-top: 30px;
+}
+
+.resolution-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid #ffd700;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.resolution-item p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.resolution-item .date {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 10px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .newyear-content {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+
+    .newyear-title {
+        font-size: 2rem;
+    }
+
+    .newyear-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .countdown-display {
+        gap: 20px;
+    }
+
+    .countdown-item {
+        min-width: 80px;
+        padding: 15px;
+    }
+
+    .countdown-number {
+        font-size: 2rem;
+    }
+
+    .countdown-label {
+        font-size: 1rem;
+    }
+
+    .newyear-info {
+        padding: 50px 15px;
+        grid-template-columns: 1fr;
+    }
+
+    .newyear-activities {
+        padding: 50px 15px;
+    }
+
+    .newyear-activities h2 {
+        font-size: 2rem;
+    }
+
+    .activities-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .resolution-section {
+        padding: 50px 15px;
+    }
+
+    .resolution-section h2 {
+        font-size: 2rem;
+    }
+
+    .resolution-form {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown-display {
+        gap: 15px;
+    }
+
+    .countdown-item {
+        min-width: 60px;
+        padding: 10px;
+    }
+
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+
+    .countdown-label {
+        font-size: 0.9rem;
+    }
+
+    .newyear-icon {
+        font-size: 3rem;
+    }
+} 
