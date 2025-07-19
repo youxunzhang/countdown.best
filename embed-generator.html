@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时计时器 - 嵌入代码生成器</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .generator-section {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .generator-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #333;
+            min-width: 120px;
+            text-align: right;
+        }
+
+        .form-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        .form-input[type="number"]::-webkit-outer-spin-button,
+        .form-input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .preset-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .preset-btn {
+            padding: 8px 15px;
+            border: 2px solid #667eea;
+            background: transparent;
+            color: #667eea;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .preset-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .generate-btn {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
+        }
+
+        .code-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+        }
+
+        .code-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .code-display {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+            margin-bottom: 20px;
+        }
+
+        .copy-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .copy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .preview-section {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .preview-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .preview-frame {
+            width: 100%;
+            height: 600px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            background: white;
+        }
+
+        .instructions {
+            background: rgba(255, 193, 7, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #ffc107;
+            margin-top: 30px;
+        }
+
+        .instructions h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .instructions ul {
+            color: #666;
+            line-height: 1.6;
+            padding-left: 20px;
+        }
+
+        .instructions li {
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .form-group {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .form-group label {
+                min-width: auto;
+                text-align: left;
+            }
+
+            .form-input {
+                width: 100%;
+            }
+
+            .preset-buttons {
+                justify-content: center;
+            }
+
+            .preview-frame {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⏰ 倒计时计时器</h1>
+            <p>生成嵌入代码，让其他网站引用您的计时器</p>
+        </div>
+
+        <div class="generator-section">
+            <h2>设置参数</h2>
+            
+            <div class="form-group">
+                <label for="default-minutes">默认分钟：</label>
+                <input type="number" id="default-minutes" class="form-input" min="0" max="999" value="0" placeholder="0">
+            </div>
+            
+            <div class="form-group">
+                <label for="default-name">默认名称：</label>
+                <input type="text" id="default-name" class="form-input" placeholder="计时器名称" value="学习时间">
+            </div>
+            
+            <div class="form-group">
+                <label for="iframe-width">宽度：</label>
+                <input type="text" id="iframe-width" class="form-input" value="500px" placeholder="500px">
+            </div>
+            
+            <div class="form-group">
+                <label for="iframe-height">高度：</label>
+                <input type="text" id="iframe-height" class="form-input" value="600px" placeholder="600px">
+            </div>
+
+            <div class="preset-buttons">
+                <button class="preset-btn" data-minutes="1">1分钟</button>
+                <button class="preset-btn" data-minutes="5">5分钟</button>
+                <button class="preset-btn" data-minutes="10">10分钟</button>
+                <button class="preset-btn" data-minutes="15">15分钟</button>
+                <button class="preset-btn" data-minutes="25">25分钟</button>
+                <button class="preset-btn" data-minutes="30">30分钟</button>
+                <button class="preset-btn" data-minutes="60">1小时</button>
+            </div>
+
+            <button class="generate-btn" onclick="generateCode()">生成嵌入代码</button>
+        </div>
+
+        <div class="code-section">
+            <h2>嵌入代码</h2>
+            <div class="code-display" id="code-display">
+// 点击"生成嵌入代码"按钮获取代码
+            </div>
+            <button class="copy-btn" onclick="copyCode()">复制代码</button>
+        </div>
+
+        <div class="preview-section">
+            <h2>预览效果</h2>
+            <iframe id="preview-frame" class="preview-frame" src="embed.html"></iframe>
+        </div>
+
+        <div class="instructions">
+            <h3>使用说明</h3>
+            <ul>
+                <li><strong>设置参数</strong>：调整默认时间、名称和iframe尺寸</li>
+                <li><strong>快速预设</strong>：点击预设按钮快速设置常用时间</li>
+                <li><strong>生成代码</strong>：点击按钮生成对应的嵌入代码</li>
+                <li><strong>复制代码</strong>：将生成的HTML代码复制到您的网站</li>
+                <li><strong>URL参数</strong>：支持通过URL参数预设时间，如：embed.html?minutes=5&seconds=30&name=学习时间</li>
+                <li><strong>响应式设计</strong>：计时器会自动适应不同屏幕尺寸</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // 预设按钮功能
+        const presetButtons = document.querySelectorAll('.preset-btn');
+        presetButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const minutes = parseInt(this.getAttribute('data-minutes'));
+                
+                document.getElementById('default-minutes').value = minutes;
+                
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // 生成嵌入代码
+        function generateCode() {
+            const minutes = document.getElementById('default-minutes').value;
+            const name = document.getElementById('default-name').value;
+            const width = document.getElementById('iframe-width').value;
+            const height = document.getElementById('iframe-height').value;
+
+            // 构建URL
+            const baseUrl = window.location.origin + window.location.pathname.replace('embed-generator.html', 'embed.html');
+            const params = new URLSearchParams();
+            if (minutes > 0) params.append('minutes', minutes);
+            if (name) params.append('name', name);
+            
+            const embedUrl = params.toString() ? `${baseUrl}?${params.toString()}` : baseUrl;
+
+            // 生成HTML代码
+            const htmlCode = `<!-- 倒计时计时器嵌入代码 -->
+<iframe 
+    src="${embedUrl}" 
+    width="${width}" 
+    height="${height}" 
+    frameborder="0" 
+    scrolling="no" 
+    style="border: none; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);"
+    title="倒计时计时器">
+</iframe>
+
+<!-- 或者使用div容器 -->
+<div style="width: ${width}; height: ${height};">
+    <iframe 
+        src="${embedUrl}" 
+        width="100%" 
+        height="100%" 
+        frameborder="0" 
+        scrolling="no" 
+        style="border: none; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);"
+        title="倒计时计时器">
+    </iframe>
+</div>`;
+
+            document.getElementById('code-display').textContent = htmlCode;
+            
+            // 更新预览
+            updatePreview();
+        }
+
+        // 更新预览
+        function updatePreview() {
+            const minutes = document.getElementById('default-minutes').value;
+            const name = document.getElementById('default-name').value;
+            
+            const params = new URLSearchParams();
+            if (minutes > 0) params.append('minutes', minutes);
+            if (name) params.append('name', name);
+            
+            const previewUrl = params.toString() ? `embed.html?${params.toString()}` : 'embed.html';
+            document.getElementById('preview-frame').src = previewUrl;
+        }
+
+        // 复制代码
+        function copyCode() {
+            const codeDisplay = document.getElementById('code-display');
+            const text = codeDisplay.textContent;
+            
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showCopySuccess();
+                }).catch(() => {
+                    fallbackCopyTextToClipboard(text);
+                });
+            } else {
+                fallbackCopyTextToClipboard(text);
+            }
+        }
+
+        // 备用复制方法
+        function fallbackCopyTextToClipboard(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.top = '0';
+            textArea.style.left = '0';
+            textArea.style.position = 'fixed';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                showCopySuccess();
+            } catch (err) {
+                console.error('复制失败:', err);
+                alert('复制失败，请手动复制代码');
+            }
+            
+            document.body.removeChild(textArea);
+        }
+
+        // 显示复制成功提示
+        function showCopySuccess() {
+            const copyBtn = document.querySelector('.copy-btn');
+            const originalText = copyBtn.textContent;
+            copyBtn.textContent = '复制成功！';
+            copyBtn.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+            
+            setTimeout(() => {
+                copyBtn.textContent = originalText;
+                copyBtn.style.background = 'linear-gradient(135deg, #667eea, #764ba2)';
+            }, 2000);
+        }
+
+        // 输入验证
+        document.getElementById('default-minutes').addEventListener('input', function() {
+            let value = parseInt(this.value) || 0;
+            if (value < 0) this.value = 0;
+            if (value > 999) this.value = 999;
+        });
+
+        // 实时更新预览
+        document.getElementById('default-minutes').addEventListener('input', updatePreview);
+        document.getElementById('default-name').addEventListener('input', updatePreview);
+
+        // 页面加载时生成默认代码
+        window.addEventListener('load', function() {
+            generateCode();
+        });
+    </script>
+</body>
+</html> 

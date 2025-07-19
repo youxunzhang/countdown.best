@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时小游戏 - 倒计时网站</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>⏰ 倒计时网站</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a href="christmas.html" class="nav-link">圣诞节</a>
+                </li>
+                <li class="nav-item">
+                    <a href="newyear.html" class="nav-link">新年</a>
+                </li>
+                <li class="nav-item">
+                    <a href="halloween.html" class="nav-link">万圣节</a>
+                </li>
+                <li class="nav-item">
+                    <a href="game.html" class="nav-link active">小游戏</a>
+                </li>
+                <li class="nav-item">
+                    <a href="chinese-time.html" class="nav-link">子午流注</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="game-hero">
+            <h1 class="game-title">🎮 倒计时小游戏</h1>
+            <p class="game-subtitle">通过有趣的游戏放松心情，挑战你的时间感知能力</p>
+        </div>
+
+        <div class="games-container">
+            <!-- 时间感知游戏 -->
+            <div class="game-card" id="time-perception-game">
+                <div class="game-header">
+                    <h3>⏱️ 时间感知挑战</h3>
+                    <p>测试你对时间的感知能力，看看能否准确估计10秒钟</p>
+                </div>
+                <div class="game-content">
+                    <div class="timer-display">
+                        <span id="perception-timer">00:00</span>
+                    </div>
+                    <div class="game-controls">
+                        <button id="start-perception" class="game-btn">开始计时</button>
+                        <button id="stop-perception" class="game-btn" disabled>停止计时</button>
+                        <button id="reset-perception" class="game-btn">重置</button>
+                    </div>
+                    <div class="game-result" id="perception-result"></div>
+                </div>
+            </div>
+
+            <!-- 倒计时记忆游戏 -->
+            <div class="game-card" id="memory-game">
+                <div class="game-header">
+                    <h3>🧠 倒计时记忆游戏</h3>
+                    <p>记住倒计时的数字，然后按顺序点击</p>
+                </div>
+                <div class="game-content">
+                    <div class="memory-display">
+                        <div id="memory-numbers"></div>
+                        <div id="memory-input"></div>
+                    </div>
+                    <div class="game-controls">
+                        <button id="start-memory" class="game-btn">开始游戏</button>
+                        <button id="reset-memory" class="game-btn">重置</button>
+                    </div>
+                    <div class="game-result" id="memory-result"></div>
+                </div>
+            </div>
+
+            <!-- 快速点击游戏 -->
+            <div class="game-card" id="click-game">
+                <div class="game-header">
+                    <h3>🖱️ 快速点击挑战</h3>
+                    <p>在倒计时结束前尽可能多地点击目标</p>
+                </div>
+                <div class="game-content">
+                    <div class="click-display">
+                        <div class="click-timer">
+                            <span id="click-timer">10</span>
+                        </div>
+                        <div class="click-target" id="click-target">
+                            <span>点击我！</span>
+                        </div>
+                        <div class="click-score">
+                            得分: <span id="click-score">0</span>
+                        </div>
+                    </div>
+                    <div class="game-controls">
+                        <button id="start-click" class="game-btn">开始游戏</button>
+                        <button id="reset-click" class="game-btn">重置</button>
+                    </div>
+                    <div class="game-result" id="click-result"></div>
+                </div>
+            </div>
+
+            <!-- 颜色匹配游戏 -->
+            <div class="game-card" id="color-game">
+                <div class="game-header">
+                    <h3>🎨 颜色匹配游戏</h3>
+                    <p>在倒计时内匹配相同颜色的方块</p>
+                </div>
+                <div class="game-content">
+                    <div class="color-display">
+                        <div class="color-timer">
+                            <span id="color-timer">30</span>
+                        </div>
+                        <div class="color-grid" id="color-grid"></div>
+                        <div class="color-score">
+                            匹配: <span id="color-score">0</span>
+                        </div>
+                    </div>
+                    <div class="game-controls">
+                        <button id="start-color" class="game-btn">开始游戏</button>
+                        <button id="reset-color" class="game-btn">重置</button>
+                    </div>
+                    <div class="game-result" id="color-result"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="leaderboard-section">
+            <h2>🏆 游戏排行榜</h2>
+            <div class="leaderboard-tabs">
+                <button class="tab-btn active" data-tab="perception">时间感知</button>
+                <button class="tab-btn" data-tab="memory">记忆游戏</button>
+                <button class="tab-btn" data-tab="click">快速点击</button>
+                <button class="tab-btn" data-tab="color">颜色匹配</button>
+            </div>
+            <div class="leaderboard-content">
+                <div class="tab-content active" id="perception-leaderboard">
+                    <div class="leaderboard-list" id="perception-scores"></div>
+                </div>
+                <div class="tab-content" id="memory-leaderboard">
+                    <div class="leaderboard-list" id="memory-scores"></div>
+                </div>
+                <div class="tab-content" id="click-leaderboard">
+                    <div class="leaderboard-list" id="click-scores"></div>
+                </div>
+                <div class="tab-content" id="color-leaderboard">
+                    <div class="leaderboard-list" id="color-scores"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-tips">
+            <h2>💡 游戏技巧</h2>
+            <div class="tips-grid">
+                <div class="tip-item">
+                    <h4>⏱️ 时间感知</h4>
+                    <p>尝试在心里默数，或者用呼吸来估计时间。练习可以显著提高准确性。</p>
+                </div>
+                <div class="tip-item">
+                    <h4>🧠 记忆游戏</h4>
+                    <p>将数字分组记忆，或者创造故事来帮助记忆。注意力集中是关键。</p>
+                </div>
+                <div class="tip-item">
+                    <h4>🖱️ 快速点击</h4>
+                    <p>保持放松，不要紧张。找到最适合你的点击节奏。</p>
+                </div>
+                <div class="tip-item">
+                    <h4>🎨 颜色匹配</h4>
+                    <p>先观察整体布局，制定策略。快速识别相同颜色的方块。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 倒计时网站. 游戏愉快！🎮</p>
+    </footer>
+
+    <script src="js/navigation.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html> 

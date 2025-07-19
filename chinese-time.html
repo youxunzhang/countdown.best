@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Time System - Countdown Website</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chinese-time.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>⏰ Countdown Website</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="christmas.html" class="nav-link">Christmas</a>
+                </li>
+                <li class="nav-item">
+                    <a href="newyear.html" class="nav-link">New Year</a>
+                </li>
+                <li class="nav-item">
+                    <a href="halloween.html" class="nav-link">Halloween</a>
+                </li>
+                <li class="nav-item">
+                    <a href="game.html" class="nav-link">Games</a>
+                </li>
+                <li class="nav-item">
+                    <a href="chinese-time.html" class="nav-link active">Chinese Time</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="chinese-hero">
+            <h1 class="chinese-title">⏰ Chinese Time System</h1>
+            <p class="chinese-subtitle">Traditional Chinese Time Wisdom for Health</p>
+            
+            <div class="clock-container">
+                <div class="traditional-clock">
+                    <div class="clock-face">
+                        <!-- Twelve time periods marks -->
+                        <div class="period-mark zi-mark" data-period="zi">子</div>
+                        <div class="period-mark chou-mark" data-period="chou">丑</div>
+                        <div class="period-mark yin-mark" data-period="yin">寅</div>
+                        <div class="period-mark mao-mark" data-period="mao">卯</div>
+                        <div class="period-mark chen-mark" data-period="chen">辰</div>
+                        <div class="period-mark si-mark" data-period="si">巳</div>
+                        <div class="period-mark wu-mark" data-period="wu">午</div>
+                        <div class="period-mark wei-mark" data-period="wei">未</div>
+                        <div class="period-mark shen-mark" data-period="shen">申</div>
+                        <div class="period-mark you-mark" data-period="you">酉</div>
+                        <div class="period-mark xu-mark" data-period="xu">戌</div>
+                        <div class="period-mark hai-mark" data-period="hai">亥</div>
+                        
+                        <!-- Modern time marks -->
+                        <div class="hour-mark" style="transform: rotate(0deg)">12</div>
+                        <div class="hour-mark" style="transform: rotate(30deg)">1</div>
+                        <div class="hour-mark" style="transform: rotate(60deg)">2</div>
+                        <div class="hour-mark" style="transform: rotate(90deg)">3</div>
+                        <div class="hour-mark" style="transform: rotate(120deg)">4</div>
+                        <div class="hour-mark" style="transform: rotate(150deg)">5</div>
+                        <div class="hour-mark" style="transform: rotate(180deg)">6</div>
+                        <div class="hour-mark" style="transform: rotate(210deg)">7</div>
+                        <div class="hour-mark" style="transform: rotate(240deg)">8</div>
+                        <div class="hour-mark" style="transform: rotate(270deg)">9</div>
+                        <div class="hour-mark" style="transform: rotate(300deg)">10</div>
+                        <div class="hour-mark" style="transform: rotate(330deg)">11</div>
+                        
+                        <!-- Clock hands -->
+                        <div class="clock-hands">
+                            <div class="hand hour-hand" id="hour-hand"></div>
+                            <div class="hand minute-hand" id="minute-hand"></div>
+                            <div class="hand second-hand" id="second-hand"></div>
+                            <div class="center-dot"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="digital-time">
+                    <div class="time-display">
+                        <span id="current-time">00:00:00</span>
+                    </div>
+                    <div class="date-display">
+                        <span id="current-date">January 1, 2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="time-system">
+            <div class="current-period">
+                <h2>Current Time Period</h2>
+                <div class="period-info" id="current-period-info">
+                    <div class="period-name">Zi Hour</div>
+                    <div class="period-time">23:00 - 01:00</div>
+                    <div class="period-organ">Gallbladder Meridian Active</div>
+                </div>
+            </div>
+
+            <div class="next-period">
+                <h3>Next Time Period</h3>
+                <div class="period-info" id="next-period-info">
+                    <div class="period-name">Chou Hour</div>
+                    <div class="period-time">01:00 - 03:00</div>
+                    <div class="period-organ">Liver Meridian Active</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="twelve-periods">
+            <h2>Twelve Time Periods Reference</h2>
+            <div class="periods-grid">
+                <div class="period-card" data-period="zi">
+                    <div class="period-header">
+                        <h3>Zi Hour</h3>
+                        <span class="time-range">23:00 - 01:00</span>
+                    </div>
+                    <div class="period-content">
+                        <div class="organ-info">
+                            <h4>Gallbladder Meridian Active</h4>
+                            <p>Gallbladder governs decision-making, time for rest and energy conservation</p>
+                        </div>
+                        <div class="health-tips">
+                            <h5>Health Tips</h5>
+                            <ul>
+                                <li>Early to bed, early to rise</li>
+                                <li>Avoid staying up late</li>
+                                <li>Drink warm water before sleep</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="period-card" data-period="chou">
+                    <div class="period-header">
+                        <h3>Chou Hour</h3>
+                        <span class="time-range">01:00 - 03:00</span>
+                    </div>
+                    <div class="period-content">
+                        <div class="organ-info">
+                            <h4>Liver Meridian Active</h4>
+                            <p>Liver governs detoxification, time for deep sleep</p>
+                        </div>
+                        <div class="health-tips">
+                            <h5>Health Tips</h5>
+                            <ul>
+                                <li>Maintain deep sleep state</li>
+                                <li>Avoid emotional excitement</li>
+                                <li>Protect liver function</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="period-card" data-period="yin">
+                    <div class="period-header">
+                        <h3>Yin Hour</h3>
+                        <span class="time-range">03:00 - 05:00</span>
+                    </div>
+                    <div class="period-content">
+                        <div class="organ-info">
+                            <h4>Lung Meridian Active</h4>
+                            <p>Lung governs qi, time for fresh air breathing</p>
+                        </div>
+                        <div class="health-tips">
+                            <h5>Health Tips</h5>
+                            <ul>
+                                <li>Can wake up early for exercise</li>
+                                <li>Deep breathing exercises</li>
+                                <li>Keep indoor ventilation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="period-card" data-period="mao">
+                    <div class="period-header">
+                        <h3>Mao Hour</h3>
+                        <span class="time-range">05:00 - 07:00</span>
+                    </div>
+                    <div class="period-content">
+                        <div class="organ-info">
+                            <h4>Large Intestine Meridian Active</h4>
+                            <p>Large intestine governs conduction, time for elimination</p>
+                        </div>
+                        <div class="health-tips">
+                            <h5>Health Tips</h5>
+                            <ul>
+                                <li>Develop regular bowel habits</li>
+                                <li>Drink more water</li>
+                                <li>Moderate exercise</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="period-card" data-period="chen">
+                    <div class="period-header">
+                        <h3>Chen Hour</h3>
+                        <span class="time-range">07:00 - 09:00</span>
+                    </div>
+                    <div class="period-content">
+                        <div class="organ-info">
+                            <h4>Stomach Meridian Active</h4>
+                            <p>Stomach governs reception, time for breakfast</p>
+                        </div>
+                        <div class="health-tips">
+                            <h5>Health Tips</h5>
+                            <ul>
+                                <li>Eat breakfast on time</li>
+                                <li>Chew slowly and thoroughly</li>
+                                <li>Choose nutritious foods</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="period-card" data-period="si">
+                    <div class="period-header">
+                        <h3>Si Hour</h3>
+                        <span class="time-range">09:00 - 11:00</span>
+                    </div>
+                    <div class="period-content">
+                        <div class="organ-info">
+                            <h4>Spleen Meridian Active</h4>
+                            <p>Spleen governs transformation, time for work and study</p>
+                        </div>
+                        <div class="health-tips">
+                            <h5>Health Tips</h5>
+                            <ul>
+                                <li>Focus on work and study</li>
+                                <li>Moderate exercise</li>
+                                <li>Maintain good mood</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="period-card" data-period="wu">
+                    <div class="period-header">
+                        <h3>Wu Hour</h3>
+                        <span class="time-range">11:00 - 13:00</span>
+                    </div>
+                    <div class="period-content">
+                        <div class="organ-info">
+                            <h4>Heart Meridian Active</h4>
+                            <p>Heart governs spirit, time for noon rest</p>
+                        </div>
+                        <div class="health-tips">
+                            <h5>Health Tips</h5>
+                            <ul>
+                                <li>Take a noon nap</li>
+                                <li>Avoid intense exercise</li>
+                                <li>Keep calm mood</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="period-card" data-period="wei">
+                    <div class="period-header">
+                        <h3>Wei Hour</h3>
+                        <span class="time-range">13:00 - 15:00</span>
+                    </div>
+                    <div class="period-content">
+                        <div class="organ-info">
+                            <h4>Small Intestine Meridian Active</h4>
+                            <p>Small intestine governs absorption, time for digestion</p>
+                        </div>
+                        <div class="health-tips">
+                            <h5>Health Tips</h5>
+                            <ul>
+                                <li>Moderate exercise</li>
+                                <li>Drink more water</li>
+                                <li>Avoid overwork</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="period-card" data-period="shen">
+                    <div class="period-header">
+                        <h3>Shen Hour</h3>
+                        <span class="time-range">15:00 - 17:00</span>
+                    </div>
+                    <div class="period-content">
+                        <div class="organ-info">
+                            <h4>Bladder Meridian Active</h4>
+                            <p>Bladder governs qi transformation, time for exercise</p>
+                        </div>
+                        <div class="health-tips">
+                            <h5>Health Tips</h5>
+                            <ul>
+                                <li>Moderate exercise</li>
+                                <li>Drink more water</li>
+                                <li>Maintain good mood</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="period-card" data-period="you">
+                    <div class="period-header">
+                        <h3>You Hour</h3>
+                        <span class="time-range">17:00 - 19:00</span>
+                    </div>
+                    <div class="period-content">
+                        <div class="organ-info">
+                            <h4>Kidney Meridian Active</h4>
+                            <p>Kidney governs essence storage, time for kidney nourishment</p>
+                        </div>
+                        <div class="health-tips">
+                            <h5>Health Tips</h5>
+                            <ul>
+                                <li>Moderate exercise</li>
+                                <li>Avoid overwork</li>
+                                <li>Maintain good mood</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="period-card" data-period="xu">
+                    <div class="period-header">
+                        <h3>Xu Hour</h3>
+                        <span class="time-range">19:00 - 21:00</span>
+                    </div>
+                    <div class="period-content">
+                        <div class="organ-info">
+                            <h4>Pericardium Meridian Active</h4>
+                            <p>Pericardium governs protection, time for relaxation</p>
+                        </div>
+                        <div class="health-tips">
+                            <h5>Health Tips</h5>
+                            <ul>
+                                <li>Relax and prepare for rest</li>
+                                <li>Avoid intense exercise</li>
+                                <li>Keep calm mood</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="period-card" data-period="hai">
+                    <div class="period-header">
+                        <h3>Hai Hour</h3>
+                        <span class="time-range">21:00 - 23:00</span>
+                    </div>
+                    <div class="period-content">
+                        <div class="organ-info">
+                            <h4>Triple Burner Meridian Active</h4>
+                            <p>Triple burner governs regulation, time to prepare for sleep</p>
+                        </div>
+                        <div class="health-tips">
+                            <h5>Health Tips</h5>
+                            <ul>
+                                <li>Prepare for sleep</li>
+                                <li>Avoid intense exercise</li>
+                                <li>Keep calm mood</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="health-advice">
+            <h2>💡 Health Advice</h2>
+            <div class="advice-grid">
+                <div class="advice-item">
+                    <h3>🌅 Follow Nature</h3>
+                    <p>Adjust your schedule according to time periods, follow natural rhythms for better health.</p>
+                </div>
+                <div class="advice-item">
+                    <h3>🍽️ Dietary Regulation</h3>
+                    <p>Arrange meals reasonably according to organ characteristics at different times.</p>
+                </div>
+                <div class="advice-item">
+                    <h3>🏃‍♂️ Exercise for Health</h3>
+                    <p>Choose appropriate times for exercise to enhance physical fitness and immunity.</p>
+                </div>
+                <div class="advice-item">
+                    <h3>😴 Sleep Regulation</h3>
+                    <p>Ensure adequate sleep time and quality to restore body functions.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Countdown Website. Traditional Chinese Wisdom! ⏰</p>
+    </footer>
+
+    <script src="js/navigation.js"></script>
+    <script src="js/chinese-time.js"></script>
+</body>
+</html> 

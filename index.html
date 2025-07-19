@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>倒计时网站 - 首页</title>
+    <title>Countdown Website - Home</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/home.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -12,26 +12,26 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <h2>⏰ 倒计时网站</h2>
+                <h2>⏰ Countdown Website</h2>
             </div>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link active">首页</a>
+                    <a href="index.html" class="nav-link active">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="christmas.html" class="nav-link">圣诞节</a>
+                    <a href="christmas.html" class="nav-link">Christmas</a>
                 </li>
                 <li class="nav-item">
-                    <a href="newyear.html" class="nav-link">新年</a>
+                    <a href="newyear.html" class="nav-link">New Year</a>
                 </li>
                 <li class="nav-item">
-                    <a href="halloween.html" class="nav-link">万圣节</a>
+                    <a href="halloween.html" class="nav-link">Halloween</a>
                 </li>
                 <li class="nav-item">
-                    <a href="game.html" class="nav-link">小游戏</a>
+                    <a href="game.html" class="nav-link">Games</a>
                 </li>
                 <li class="nav-item">
-                    <a href="chinese-time.html" class="nav-link">子午流注</a>
+                    <a href="chinese-time.html" class="nav-link">Chinese Time</a>
                 </li>
             </ul>
             <div class="hamburger">
@@ -45,88 +45,61 @@
     <main class="main-content">
         <div class="hero-section">
             <div class="background-selector">
-                <h3>选择背景图片</h3>
+                <h3>Choose Background</h3>
                 <div class="bg-options">
-                    <button class="bg-option" data-bg="default">默认</button>
-                    <button class="bg-option" data-bg="nature">自然</button>
-                    <button class="bg-option" data-bg="city">城市</button>
-                    <button class="bg-option" data-bg="space">星空</button>
-                    <button class="bg-option" data-bg="ocean">海洋</button>
+                    <button class="bg-option" data-bg="default">Default</button>
+                    <button class="bg-option" data-bg="nature">Nature</button>
+                    <button class="bg-option" data-bg="city">City</button>
+                    <button class="bg-option" data-bg="space">Space</button>
+                    <button class="bg-option" data-bg="ocean">Ocean</button>
                 </div>
             </div>
             
             <div class="countdown-container">
-                <!-- 倒计时设置区域 -->
-                <div class="countdown-setup">
-                    <div class="target-input-group">
-                        <label for="timer-minutes">分钟：</label>
-                        <input type="number" id="timer-minutes" class="target-input" min="0" max="999" value="0" placeholder="0">
-                    </div>
-                    <div class="target-input-group">
-                        <label for="timer-name">计时器名称：</label>
-                        <input type="text" id="timer-name" class="target-input" placeholder="例如：学习时间、休息时间..." value="学习时间">
-                    </div>
-                    
-                    <!-- 快速时间预设 -->
-                    <div class="quick-time-presets">
-                        <h4>快速设置</h4>
-                        <div class="preset-buttons">
-                            <button class="preset-btn" data-minutes="1">1分钟</button>
-                            <button class="preset-btn" data-minutes="5">5分钟</button>
-                            <button class="preset-btn" data-minutes="10">10分钟</button>
-                            <button class="preset-btn" data-minutes="15">15分钟</button>
-                            <button class="preset-btn" data-minutes="25">25分钟</button>
-                            <button class="preset-btn" data-minutes="30">30分钟</button>
-                        </div>
-                    </div>
+                <!-- Year countdown header -->
+                <div class="year-countdown-header">
+                    <h1 class="year-countdown-title">Time Until 2026</h1>
+                    <p class="year-countdown-subtitle">Cherish time, seize the moment</p>
                 </div>
                 
                 <div class="countdown-display">
                     <div class="countdown-item">
                         <span class="countdown-number" id="days">00</span>
-                        <span class="countdown-label">天</span>
+                        <span class="countdown-label">Days</span>
                     </div>
                     <div class="countdown-item">
                         <span class="countdown-number" id="hours">00</span>
-                        <span class="countdown-label">时</span>
+                        <span class="countdown-label">Hours</span>
                     </div>
                     <div class="countdown-item">
                         <span class="countdown-number" id="minutes">00</span>
-                        <span class="countdown-label">分</span>
+                        <span class="countdown-label">Minutes</span>
                     </div>
                     <div class="countdown-item">
                         <span class="countdown-number" id="seconds">00</span>
-                        <span class="countdown-label">秒</span>
+                        <span class="countdown-label">Seconds</span>
                     </div>
-                </div>
-                
-                <!-- 倒计时控制按钮 -->
-                <div class="countdown-controls">
-                    <button id="start-countdown" class="control-btn start-btn">开始倒计时</button>
-                    <button id="pause-countdown" class="control-btn pause-btn" disabled>暂停</button>
-                    <button id="reset-countdown" class="control-btn reset-btn">重置</button>
                 </div>
                 
                 <div class="countdown-target">
-                    <h3 id="timer-display-name">学习时间</h3>
-                    <p id="countdown-status" class="status-text">请设置时间并开始计时</p>
+                    <p id="countdown-status" class="status-text">2026 is coming soon! Let's look forward to a wonderful new year together!</p>
                     <div class="embed-link">
                         <a href="embed-generator.html" target="_blank" class="embed-btn">
-                            📋 获取嵌入代码
+                            📋 Get Custom Timer
                         </a>
                     </div>
                     
-                    <!-- 分享按钮 -->
+                    <!-- Share buttons -->
                     <div class="share-section">
-                        <h4>分享计时器</h4>
+                        <h4>Share Timer</h4>
                         <div class="share-buttons">
                             <button class="share-btn wechat" onclick="shareToWeChat()">
                                 <span class="share-icon">💬</span>
-                                <span class="share-text">微信</span>
+                                <span class="share-text">WeChat</span>
                             </button>
                             <button class="share-btn weibo" onclick="shareToWeibo()">
                                 <span class="share-icon">📱</span>
-                                <span class="share-text">微博</span>
+                                <span class="share-text">Weibo</span>
                             </button>
                             <button class="share-btn qq" onclick="shareToQQ()">
                                 <span class="share-icon">🐧</span>
@@ -134,11 +107,11 @@
                             </button>
                             <button class="share-btn qzone" onclick="shareToQzone()">
                                 <span class="share-icon">⭐</span>
-                                <span class="share-text">QQ空间</span>
+                                <span class="share-text">QZone</span>
                             </button>
                             <button class="share-btn copy-link" onclick="copyShareLink()">
                                 <span class="share-icon">🔗</span>
-                                <span class="share-text">复制链接</span>
+                                <span class="share-text">Copy Link</span>
                             </button>
                         </div>
                     </div>
@@ -147,44 +120,44 @@
         </div>
 
         <div class="features-section">
-            <h2>特色功能</h2>
+            <h2>Featured Functions</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">🎄</div>
-                    <h3>圣诞节倒计时</h3>
-                    <p>温馨的圣诞节倒计时，感受节日氛围</p>
-                    <a href="christmas.html" class="feature-btn">查看详情</a>
+                    <h3>Christmas Countdown</h3>
+                    <p>Warm Christmas countdown, feel the festive atmosphere</p>
+                    <a href="christmas.html" class="feature-btn">View Details</a>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🎆</div>
-                    <h3>新年倒计时</h3>
-                    <p>迎接新年的激动时刻</p>
-                    <a href="newyear.html" class="feature-btn">查看详情</a>
+                    <h3>New Year Countdown</h3>
+                    <p>Exciting moments to welcome the new year</p>
+                    <a href="newyear.html" class="feature-btn">View Details</a>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">👻</div>
-                    <h3>万圣节倒计时</h3>
-                    <p>神秘的万圣节倒计时体验</p>
-                    <a href="halloween.html" class="feature-btn">查看详情</a>
+                    <h3>Halloween Countdown</h3>
+                    <p>Mysterious Halloween countdown experience</p>
+                    <a href="halloween.html" class="feature-btn">View Details</a>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🎮</div>
-                    <h3>倒计时小游戏</h3>
-                    <p>有趣的倒计时游戏，放松心情</p>
-                    <a href="game.html" class="feature-btn">开始游戏</a>
+                    <h3>Countdown Games</h3>
+                    <p>Fun countdown games to relax your mind</p>
+                    <a href="game.html" class="feature-btn">Start Game</a>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">⏰</div>
-                    <h3>子午流注</h3>
-                    <p>中国传统时辰养生智慧</p>
-                    <a href="chinese-time.html" class="feature-btn">查看详情</a>
+                    <h3>Chinese Time System</h3>
+                    <p>Traditional Chinese time wisdom for health</p>
+                    <a href="chinese-time.html" class="feature-btn">View Details</a>
                 </div>
             </div>
         </div>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2024 倒计时网站. 让时间更有意义.</p>
+        <p>&copy; 2024 Countdown Website. Making time more meaningful.</p>
     </footer>
 
     <script src="js/navigation.js"></script>
