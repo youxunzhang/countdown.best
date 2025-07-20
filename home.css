@@ -1,0 +1,549 @@
+/* 首页专用样式 */
+
+/* 英雄区域 */
+.hero-section {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transition: background-image 0.5s ease;
+}
+
+/* 背景选择器 */
+.background-selector {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.background-selector h3 {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.bg-options {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.bg-option {
+    padding: 8px 15px;
+    border: 2px solid #667eea;
+    background: transparent;
+    color: #667eea;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.bg-option:hover,
+.bg-option.active {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* 倒计时容器 */
+.countdown-container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    animation: fadeInUp 1s ease-out;
+}
+
+
+
+/* 一年倒计时标题 */
+.year-countdown-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.year-countdown-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.year-countdown-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+
+
+/* 状态文本 */
+.status-text {
+    color: #666;
+    font-size: 1rem;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.countdown-target h3 {
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* 嵌入代码链接 */
+.embed-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.embed-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #17a2b8, #20c997);
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(23, 162, 184, 0.4);
+}
+
+.embed-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(23, 162, 184, 0.6);
+    color: white;
+    text-decoration: none;
+}
+
+/* 分享按钮样式 */
+.share-section {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(102, 126, 234, 0.2);
+}
+
+.share-section h4 {
+    color: #333;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.share-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.8rem;
+    font-weight: 500;
+    min-width: 60px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.share-icon {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+.share-text {
+    font-size: 0.7rem;
+}
+
+.wechat {
+    background: linear-gradient(135deg, #07c160, #00d976);
+    color: white;
+}
+
+.weibo {
+    background: linear-gradient(135deg, #e6162d, #ff4757);
+    color: white;
+}
+
+.qq {
+    background: linear-gradient(135deg, #12b7f5, #1e90ff);
+    color: white;
+}
+
+.qzone {
+    background: linear-gradient(135deg, #ffa500, #ff8c00);
+    color: white;
+}
+
+.copy-link {
+    background: linear-gradient(135deg, #6c757d, #495057);
+    color: white;
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+    .share-buttons {
+        gap: 8px;
+    }
+    
+    .share-btn {
+        padding: 8px 10px;
+        min-width: 50px;
+        font-size: 0.7rem;
+    }
+    
+    .share-icon {
+        font-size: 1rem;
+    }
+    
+    .share-text {
+        font-size: 0.6rem;
+    }
+    
+    .share-section h4 {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+}
+
+/* 完成消息样式 */
+.completion-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.completion-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: scaleIn 0.3s ease-out;
+    max-width: 400px;
+    width: 90%;
+}
+
+.completion-content h2 {
+    font-size: 2rem;
+    color: #28a745;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.completion-content p {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.completion-content button {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.completion-content button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from { 
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to { 
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.countdown-display {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 120px;
+}
+
+.countdown-number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #667eea;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: pulse 2s infinite;
+}
+
+.countdown-label {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.countdown-target h3 {
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 600;
+}
+
+/* 特色功能区域 */
+.features-section {
+    padding: 80px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.features-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: white;
+    font-weight: 700;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+}
+
+.feature-card p {
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.feature-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.feature-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+/* 背景图片样式 */
+.bg-default {
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.bg-nature {
+    background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+}
+
+.bg-city {
+    background-image: url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+}
+
+.bg-space {
+    background-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+}
+
+.bg-ocean {
+    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 30px 15px;
+        min-height: 70vh;
+    }
+
+    .background-selector {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-bottom: 30px;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .countdown-container {
+        padding: 30px 20px;
+    }
+
+    .year-countdown-title {
+        font-size: 2.2rem;
+    }
+
+    .year-countdown-subtitle {
+        font-size: 1rem;
+    }
+
+    .countdown-display {
+        gap: 20px;
+    }
+
+    .countdown-item {
+        min-width: 80px;
+    }
+
+    .countdown-number {
+        font-size: 2.5rem;
+    }
+
+    .countdown-label {
+        font-size: 1rem;
+    }
+
+    .features-section {
+        padding: 50px 15px;
+    }
+
+    .features-section h2 {
+        font-size: 2rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .feature-card {
+        padding: 30px 20px;
+    }
+
+    /* 移动端完成消息 */
+    .completion-content {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+
+    .completion-content h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown-display {
+        gap: 15px;
+    }
+
+    .countdown-item {
+        min-width: 60px;
+    }
+
+    .countdown-number {
+        font-size: 2rem;
+    }
+
+    .countdown-label {
+        font-size: 0.9rem;
+    }
+} 

@@ -1,0 +1,425 @@
+/* 万圣节页面样式 */
+
+/* 万圣节英雄区域 */
+.halloween-hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #2c1810 0%, #4a1c10 50%, #2c1810 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* 幽灵动画 */
+.ghost-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.ghost {
+    position: absolute;
+    font-size: 2rem;
+    animation: ghostFloat linear infinite;
+    opacity: 0.7;
+}
+
+.ghost:nth-child(1) {
+    left: 10%;
+    animation-duration: 8s;
+    animation-delay: 0s;
+}
+
+.ghost:nth-child(2) {
+    left: 30%;
+    animation-duration: 10s;
+    animation-delay: 2s;
+}
+
+.ghost:nth-child(3) {
+    left: 50%;
+    animation-duration: 12s;
+    animation-delay: 4s;
+}
+
+.ghost:nth-child(4) {
+    left: 70%;
+    animation-duration: 9s;
+    animation-delay: 1s;
+}
+
+.ghost:nth-child(5) {
+    left: 90%;
+    animation-duration: 11s;
+    animation-delay: 3s;
+}
+
+@keyframes ghostFloat {
+    0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-100px) translateX(50px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* 万圣节内容 */
+.halloween-content {
+    text-align: center;
+    color: white;
+    z-index: 2;
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 50px;
+    border-radius: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.halloween-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: pumpkinGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pumpkinGlow {
+    from {
+        text-shadow: 0 0 20px rgba(255, 165, 0, 0.8);
+    }
+    to {
+        text-shadow: 0 0 30px rgba(255, 165, 0, 1), 0 0 40px rgba(255, 165, 0, 0.6);
+    }
+}
+
+.halloween-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(45deg, #ff8c00, #ff4500, #ff6347, #ffa500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.halloween-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+/* 倒计时显示 */
+.countdown-display {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 120px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.countdown-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.countdown-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ff8c00;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: numberPulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes numberPulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+.countdown-label {
+    font-size: 1.2rem;
+    color: white;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.halloween-message {
+    margin-top: 30px;
+}
+
+.halloween-message p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    opacity: 0.9;
+}
+
+/* 万圣节信息区域 */
+.halloween-info {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.info-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    border-top: 4px solid #ff8c00;
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.info-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #ff8c00;
+    font-weight: 600;
+}
+
+.info-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* 万圣节活动区域 */
+.halloween-activities {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #ff8c00 0%, #ff4500 100%);
+    color: white;
+}
+
+.halloween-activities h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.activity-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px 20px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.activity-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.activity-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.activity-item h4 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.activity-item p {
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* 装扮创意区域 */
+.costume-ideas {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+    color: white;
+}
+
+.costume-ideas h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.costume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.costume-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 25px 20px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.costume-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.costume-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.costume-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.costume-item p {
+    opacity: 0.9;
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .halloween-content {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+
+    .halloween-title {
+        font-size: 2rem;
+    }
+
+    .halloween-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .countdown-display {
+        gap: 20px;
+    }
+
+    .countdown-item {
+        min-width: 80px;
+        padding: 15px;
+    }
+
+    .countdown-number {
+        font-size: 2rem;
+    }
+
+    .countdown-label {
+        font-size: 1rem;
+    }
+
+    .halloween-info {
+        padding: 50px 15px;
+        grid-template-columns: 1fr;
+    }
+
+    .halloween-activities {
+        padding: 50px 15px;
+    }
+
+    .halloween-activities h2 {
+        font-size: 2rem;
+    }
+
+    .activities-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .costume-ideas {
+        padding: 50px 15px;
+    }
+
+    .costume-ideas h2 {
+        font-size: 2rem;
+    }
+
+    .costume-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown-display {
+        gap: 15px;
+    }
+
+    .countdown-item {
+        min-width: 60px;
+        padding: 10px;
+    }
+
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+
+    .countdown-label {
+        font-size: 0.9rem;
+    }
+
+    .halloween-icon {
+        font-size: 3rem;
+    }
+
+    .costume-grid {
+        grid-template-columns: 1fr;
+    }
+} 
