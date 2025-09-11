@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# 允许所有搜索引擎抓取
+Disallow: /test.txt
+Disallow: /ads.txt
+
+# 网站地图位置
+Sitemap: https://countdown.best/sitemap.xml
+
+# 爬取延迟（可选）
+Crawl-delay: 1

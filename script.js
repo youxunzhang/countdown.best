@@ -210,6 +210,65 @@ function copyShareLink() {
     });
 }
 
+// 国外社交媒体分享功能
+function shareToFacebook() {
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.title);
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${title}`, '_blank', 'width=600,height=400');
+}
+
+function shareToTwitter() {
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.title);
+    const text = encodeURIComponent('Check out this amazing countdown timer!');
+    window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'width=600,height=400');
+}
+
+function shareToLinkedIn() {
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.title);
+    const summary = encodeURIComponent('Professional countdown timer website');
+    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}&summary=${summary}`, '_blank', 'width=600,height=400');
+}
+
+function shareToTelegram() {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent('Check out this amazing countdown timer: ' + document.title);
+    window.open(`https://t.me/share/url?url=${url}&text=${text}`, '_blank', 'width=600,height=400');
+}
+
+// 收藏功能
+function addToBookmarks() {
+    const title = document.title;
+    const url = window.location.href;
+    
+    if (window.sidebar && window.sidebar.addPanel) {
+        // Firefox
+        window.sidebar.addPanel(title, url, '');
+    } else if (window.external && ('AddFavorite' in window.external)) {
+        // Internet Explorer
+        window.external.AddFavorite(url, title);
+    } else if (window.opera && window.print) {
+        // Opera
+        const elem = document.createElement('a');
+        elem.setAttribute('href', url);
+        elem.setAttribute('title', title);
+        elem.setAttribute('rel', 'sidebar');
+        elem.click();
+    } else {
+        // 现代浏览器
+        if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
+            alert('请按 Ctrl+D 或 Cmd+D 收藏此页面');
+        } else if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+            alert('请按 Ctrl+D 收藏此页面');
+        } else if (navigator.userAgent.toLowerCase().indexOf('safari') > -1) {
+            alert('请按 Cmd+D 收藏此页面');
+        } else {
+            alert('请按 Ctrl+D 收藏此页面');
+        }
+    }
+}
+
 // 游戏功能
 let gameInterval;
 let gameTime = 0;

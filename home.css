@@ -217,6 +217,26 @@
     color: white;
 }
 
+.facebook {
+    background: linear-gradient(135deg, #1877f2, #42a5f5);
+    color: white;
+}
+
+.twitter {
+    background: linear-gradient(135deg, #1da1f2, #0d8bd9);
+    color: white;
+}
+
+.linkedin {
+    background: linear-gradient(135deg, #0077b5, #005885);
+    color: white;
+}
+
+.telegram {
+    background: linear-gradient(135deg, #0088cc, #006699);
+    color: white;
+}
+
 /* 移动端优化 */
 @media (max-width: 768px) {
     .share-buttons {
@@ -545,5 +565,132 @@
 
     .countdown-label {
         font-size: 0.9rem;
+    }
+}
+
+/* SEO内容区域样式 */
+.seo-content-section {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 60px 20px;
+    margin-top: 50px;
+}
+
+.seo-content-section .container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.seo-content-section h2 {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.seo-content-section h3 {
+    font-size: 1.6rem;
+    color: #333;
+    margin: 30px 0 15px 0;
+    font-weight: 600;
+    border-left: 4px solid #667eea;
+    padding-left: 15px;
+}
+
+.seo-content-section p {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.seo-content-section ul {
+    margin: 20px 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.seo-content-section li {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+    font-size: 1rem;
+}
+
+.seo-content-section li::before {
+    content: "•";
+    color: #667eea;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.seo-content-section strong {
+    color: #333;
+    font-weight: 600;
+}
+
+/* FAQ样式 */
+.faq-section {
+    margin-top: 30px;
+}
+
+.faq-item {
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid #667eea;
+}
+
+.faq-item h4 {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.faq-item p {
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+    .seo-content-section {
+        padding: 40px 15px;
+    }
+    
+    .seo-content-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .seo-content-section h3 {
+        font-size: 1.4rem;
+    }
+    
+    .seo-content-section p {
+        font-size: 1rem;
+    }
+    
+    .seo-content-section li {
+        font-size: 0.95rem;
+    }
+    
+    .faq-item {
+        padding: 15px;
+    }
+    
+    .faq-item h4 {
+        font-size: 1.1rem;
     }
 } 

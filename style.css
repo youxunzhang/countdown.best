@@ -40,6 +40,36 @@ body {
     font-size: 1.5rem;
 }
 
+/* 收藏按钮样式 */
+.bookmark-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+}
+
+.bookmark-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.5);
+}
+
+.bookmark-icon {
+    font-size: 1.1rem;
+}
+
+.bookmark-text {
+    font-size: 0.85rem;
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
@@ -86,11 +116,62 @@ body {
 
 /* 页脚样式 */
 .footer {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.9);
     color: white;
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.footer-section h3 {
+    color: #667eea;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.footer-section p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section li {
+    color: #ccc;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.footer-section li::before {
+    content: "•";
+    color: #667eea;
+    position: absolute;
+    left: 0;
+}
+
+.footer-bottom {
+    background: rgba(0, 0, 0, 0.95);
     text-align: center;
     padding: 20px;
-    margin-top: 50px;
+    border-top: 1px solid #333;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #999;
 }
 
 /* 按钮样式 */
@@ -169,6 +250,21 @@ body {
 
     .nav-logo h2 {
         font-size: 1.2rem;
+    }
+    
+    .bookmark-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .bookmark-text {
+        display: none;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        padding: 30px 15px;
+        gap: 20px;
     }
 }
 
