@@ -2,16 +2,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     function updateNewYearCountdown() {
         const now = new Date();
-        const currentYear = now.getFullYear();
-        
-        // 计算距离下一个新年的时间
-        const nextYear = currentYear + 1;
-        const newYearDate = new Date(nextYear, 0, 1); // 1月1日 00:00:00
+        const targetYear = 2027;
+        const newYearDate = new Date(targetYear, 0, 1); // 1月1日 00:00:00
         
         const timeLeft = newYearDate - now;
         
         // 更新目标年份显示
-        document.getElementById('target-year').textContent = nextYear;
+        document.getElementById('target-year').textContent = targetYear;
         
         if (timeLeft > 0) {
             const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
@@ -51,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (message) {
                 message.innerHTML = `
                     <p>🎉 新年快乐！</p>
-                    <p>🌟 欢迎来到 ${nextYear} 年</p>
+                    <p>🌟 欢迎来到 ${targetYear} 年</p>
                     <p>🎊 愿新的一年带给你无限可能</p>
                 `;
             }
