@@ -2,8 +2,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Year countdown variables
     let yearCountdownInterval = null;
-    let targetYear = 2026;
-    let targetDate = new Date(targetYear, 0, 1, 0, 0, 0); // January 1, 2026 00:00:00
+    let targetYear = 2027;
+    let targetDate = new Date(targetYear, 0, 1, 0, 0, 0); // January 1, 2027 00:00:00
 
     // DOM elements
     const statusText = document.getElementById('countdown-status');
@@ -38,9 +38,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const timeDifference = targetDate.getTime() - now.getTime();
         
         if (timeDifference <= 0) {
-            // 2026 has arrived
+            // 2027 has arrived
             resetDisplay();
-            updateStatus('🎉 Happy New Year 2026! 🎊');
+            updateStatus('🎉 Happy New Year 2027! 🎊');
             clearInterval(yearCountdownInterval);
             showNewYearMessage();
             return;
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
             ">
                 <h2 style="font-size: 2rem; margin-bottom: 20px;">🎉 Happy New Year! 🎊</h2>
                 <p style="font-size: 1.2rem; margin-bottom: 30px; line-height: 1.6;">
-                    Welcome to 2026!<br>
+                    Welcome to 2027!<br>
                     May the new year be filled with hope, joy, and success!
                 </p>
                 <button onclick="this.parentElement.parentElement.remove()" style="
@@ -266,8 +266,8 @@ function copyShareLink() {
 function getShareData() {
     return {
         url: window.location.href,
-        title: 'Countdown to 2026 - Countdown Website',
-        description: 'Check out this amazing countdown timer to 2026!'
+        title: 'Countdown to 2027 - Countdown Website',
+        description: 'Check out this amazing countdown timer to 2027!'
     };
 }
 

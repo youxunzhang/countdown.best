@@ -58,12 +58,12 @@ function initHomeCountdown() {
     if (!daysElement || !hoursElement || !minutesElement || !secondsElement) return;
     
     const elements = [daysElement, hoursElement, minutesElement, secondsElement];
-    const targetDate = new Date('January 1, 2026 00:00:00').getTime();
+    const targetDate = new Date('January 1, 2027 00:00:00').getTime();
     
     function update() {
         const isRunning = updateCountdown(targetDate, elements);
         if (!isRunning && statusElement) {
-            statusElement.textContent = '2026年已经到来！新年快乐！';
+            statusElement.textContent = '2027年已经到来！新年快乐！';
         }
     }
     
