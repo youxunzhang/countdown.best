@@ -6,7 +6,7 @@
 
 ```
 countdown.best/
-├── index.html              # 首页 - 2026年倒计时
+├── index.html              # 首页 - 2027年倒计时
 ├── christmas.html          # 圣诞节倒计时页面
 ├── newyear.html           # 新年倒计时页面
 ├── halloween.html         # 万圣节倒计时页面
@@ -24,7 +24,7 @@ countdown.best/
 ## 功能特性
 
 ### 🏠 首页功能
-- 2026年倒计时显示
+- 2027年倒计时显示
 - 背景图片选择器（默认、自然、城市、太空、海洋）
 - 分享功能（微信、微博、QQ、QQ空间、复制链接）
 - 功能导航卡片
